@@ -1,0 +1,114 @@
+{
+  "binPath": "D:\\Progs\\sd.cpp\\bin\\sd-server.exe",
+  "workDir": "D:\\Progs\\sd.cpp\\bin",
+  "modelsDir": "D:\\LLM",
+  "assetsDir": "D:\\Progs\\sd.cpp\\models",
+  "outputDir": "D:\\Progs\\sd.cpp\\out",
+  "logDir": "D:\\Progs\\sd.cpp\\logs",
+  "host": "127.0.0.1",
+  "port": 8080,
+  "idleMode": "stop",
+  "idleTimeoutSec": 600,
+  "commonArgs": [
+    "--vae-tiling"
+  ],
+  "active": "z-image-base",
+  "profiles": {
+    "z-image-turbo": {
+      "args": {
+        "--diffusion-model": "leejet\\Z-Image-Turbo-GGUF\\z_image_turbo-Q4_K.gguf",
+        "--vae": "ae.safetensors",
+        "--llm": "unsloth\\Qwen3-4B-Instruct-2507-GGUF\\Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
+      },
+      "defaults": {
+        "steps": 9,
+        "cfg_scale": 1,
+        "sampler": "euler",
+        "width": 1024,
+        "height": 1024
+      },
+      "supports": {
+        "img2img": true,
+        "inpaint": true,
+        "edit": false,
+        "controlnet": false
+      }
+    },
+    "klein-4b": {
+      "args": {
+        "--diffusion-model": "leejet\\FLUX.2-klein-4B-GGUF\\flux2_klein_4b_q4_0.gguf",
+        "--vae": "flux2_ae.safetensors",
+        "--llm": "unsloth\\Qwen3-4B-Instruct-2507-GGUF\\Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
+      },
+      "defaults": {
+        "steps": 4,
+        "cfg_scale": 1,
+        "sampler": "euler",
+        "width": 1024,
+        "height": 1024
+      },
+      "supports": {
+        "img2img": true,
+        "inpaint": true,
+        "edit": true,
+        "controlnet": false
+      }
+    },
+    "z-image-base": {
+      "args": {
+        "--diffusion-model": "unsloth\\Z-Image-GGUF\\z-image-Q4_K_M.gguf",
+        "--vae": "ae.safetensors",
+        "--llm": "unsloth\\Qwen3-4B-Instruct-2507-GGUF\\Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
+      },
+      "defaults": {
+        "steps": 30,
+        "cfg_scale": 5,
+        "sampler": "euler",
+        "width": 1024,
+        "height": 1024
+      },
+      "supports": {
+        "img2img": true,
+        "inpaint": true,
+        "edit": false,
+        "controlnet": false
+      }
+    },
+    "sdxl": {
+      "args": {
+        "-m": "gpustack\\stable-diffusion-xl-base-1.0-GGUF\\sdxl_base_q8_0.gguf"
+      },
+      "defaults": {
+        "steps": 28,
+        "cfg_scale": 7,
+        "sampler": "euler_a",
+        "width": 1024,
+        "height": 1024
+      },
+      "supports": {
+        "img2img": true,
+        "inpaint": true,
+        "edit": false,
+        "controlnet": true
+      }
+    },
+    "sd15": {
+      "args": {
+        "-m": "second-state\\stable-diffusion-v1-5-GGUF\\sd15_q4_0.gguf"
+      },
+      "defaults": {
+        "steps": 25,
+        "cfg_scale": 7,
+        "sampler": "euler_a",
+        "width": 512,
+        "height": 512
+      },
+      "supports": {
+        "img2img": true,
+        "inpaint": true,
+        "edit": false,
+        "controlnet": true
+      }
+    }
+  }
+}
